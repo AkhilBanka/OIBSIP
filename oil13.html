@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="oil13.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Temperature Converter</h1>
+
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" placeholder="Enter temperature" />
+
+    <label for="unit">Unit:</label>
+    <select id="unit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+    </select>
+
+    <button onclick="convertTemperature()">Convert</button>
+
+    <div id="result"></div>
+
+    <script>
+        function convertTemperature() {
+            var temperatureInput = document.getElementById("temperature").value;
+            var unit = document.getElementById("unit").value;
+            var resultElement = document.getElementById("result");
+
+            // Validate input as a number
+            if (isNaN(temperatureInput)) {
+                resultElement.innerText = "Please enter a valid number.";
+                return;
+            }
+
+            // Convert temperature
+            var temperature = parseFloat(temperatureInput);
+            var convertedTemperature;
+
+            switch (unit) {
+                case "celsius":
+                    convertedTemperature = (temperature - 32) * (5/9);
+                    resultElement.innerText = "Converted Temperature: " + convertedTemperature.toFixed(2) + " Celsius";
+                    break;
+                case "fahrenheit":
+                    convertedTemperature = (temperature * 9/5) + 32;
+                    resultElement.innerText = "Converted Temperature: " + convertedTemperature.toFixed(2) + " Fahrenheit";
+                    break;
+                case "kelvin":
+                    convertedTemperature = temperature + 273.15;
+                    resultElement.innerText = "Converted Temperature: " + convertedTemperature.toFixed(2) + " Kelvin";
+                    break;
+                default:
+                    resultElement.innerText = "Invalid unit.";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+body {
+    background-color: bisque;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+label {
+    margin: 10px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    width: 200px;
+}
+
+select {
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
